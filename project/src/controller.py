@@ -12,6 +12,23 @@ class Controller:
         screen = pygame.display.set_mode([300, 400])
         pygame.display.set_caption("HackBU clicker game")
 
+        self.state = "MAIN"
+
+
+    # the gameloop manages game state
+    def gameloop(self):
+        
+        if self.state = "MAIN":
+            mainloop()
+        elif self.state = "PLACEHOLDER":
+            placeholder()
+
+
+    
+
+    # mainloop is the main game (not the start, or end, etc.)
+    def mainloop(self):
+
         running = True
         while running:
 
@@ -19,10 +36,11 @@ class Controller:
                 if event.type == pygame.QUIT:
                     running = False
 
-
+            pygame.display.flip()
 
         pygame.quit()
+
     
-    # the gameloop manages game state
-    def gameloop(self):
+
+    def placeholder(self):
         pass
