@@ -64,8 +64,6 @@ class Controller:
         score = self.data["score"]
 
         running = True
-        score = 0
-        score = 0
         while running:
             # timer.tick(framerate)
             for event in pygame.event.get():
