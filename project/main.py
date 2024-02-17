@@ -1,4 +1,5 @@
 # main
+<<<<<<< HEAD
 import pygame
 pygame.init()
 
@@ -15,3 +16,14 @@ while running:
 
 
 pygame.quit()
+=======
+# import necessary modules and files
+
+
+def main():
+    # Call controller from src.controller
+    # Call mainloop of controller
+    pass
+
+main()
+>>>>>>> ad2870773826c82fb43e24e5feb9eb349d7d5939
