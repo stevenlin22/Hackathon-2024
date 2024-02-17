@@ -1,6 +1,6 @@
 # Hackathon-2024
 
-# Idea: (tentative) robot clicker game
+# Idea: Robot Game
 ## Subheading
 
 
@@ -9,7 +9,7 @@
 2. Robot and other sprites
 3. Upgrades/Multiplier (Steven: I think i have a good idea on how to do these)
 4. Spacebar and mouse click event loops
-5. pass
+5. Platformer mode after clicker game is complete
 6. pass
 7. pass
 8. pass
