@@ -74,17 +74,20 @@ class Controller:
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
+                        #Clicker part
                         score = self.score_increase.scoreIncrease(score, multiplier)
                         print("Score: ", score)
                         print("multiplier1: ", multiplier)
+                        print("Upgrade Cost: ", upgrade_price)
                     if event.key == pygame.K_LSHIFT:
+                        #upgrades
                         print("run")
                         print("Score2: ", score)
                         if score >= upgrade_price:
                             score -= upgrade_price
                             multiplier = self.score_increase.multiplier(multiplier)
                             print("Multplier: ", multiplier)
-                            upgrade_price = 25*multiplier
+                            upgrade_price = 25 * multiplier
                             print("Upgrade price: ", upgrade_price)
                         score = self.score_increase.scoreIncrease(score)
                         self.data["score"] = score
