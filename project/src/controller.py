@@ -43,8 +43,10 @@ class Controller:
         }
 
         self.saveload()
-        
+
         self.state = "MAIN"
+
+
 
     # the gameloop manages game state
     def gameloop(self):
@@ -55,14 +57,17 @@ class Controller:
 
 
 
+
     # mainloop is the main game (not the start, or end, etc.)
     def mainloop(self):
 
         score = self.data["score"]
 
         running = True
+        score = 0
+        score = 0
         while running:
-            self.timer.tick(self.framerate)
+            # timer.tick(framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -76,10 +81,5 @@ class Controller:
 
     
 
-    def saveload(self):
-        try:
-            with open("data.txt") as f:
-                self.data = json.load(f)
-        except:
-            with open("data.txt", "w") as f:
-                json.dump(self.data, f)
+    def placeholder(self):
+        pass
