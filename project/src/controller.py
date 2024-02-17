@@ -17,6 +17,13 @@ class Controller:
         pygame.display.set_caption("HackBU clicker game")
         self.framerate = 60
         self.timer = pygame.time.Clock()
+<<<<<<< HEAD
+=======
+        
+        multiplier = 1
+        increaseRate = 1
+        self.score_increase = Upgrades(multiplier, increaseRate)
+>>>>>>> data
 
         self.data = {
             "score": 0,
@@ -38,11 +45,17 @@ class Controller:
             "platformer": False,
         }
 
+<<<<<<< HEAD
         # self.saveload()
         
         increaseRate = 1
         self.score_increase = Upgrades(increaseRate)
+=======
+        self.saveload()
+
+>>>>>>> data
         self.state = "MAIN"
+
 
 
     # the gameloop manages game state
@@ -54,14 +67,19 @@ class Controller:
 
 
 
+
     # mainloop is the main game (not the start, or end, etc.)
     def mainloop(self):
 
+        score = self.data["score"]
 
         running = True
+<<<<<<< HEAD
         score = 0
         upgrade_price = 25
         multiplier = 1
+=======
+>>>>>>> data
         while running:
             # timer.tick(framerate)
             for event in pygame.event.get():
@@ -69,6 +87,7 @@ class Controller:
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
+<<<<<<< HEAD
                         score = self.score_increase.scoreIncrease(score, multiplier)
                         print("Score: ", score)
                         print("multiplier1: ", multiplier)
@@ -81,6 +100,23 @@ class Controller:
                             print("Multplier: ", multiplier)
                             upgrade_price = 25*multiplier
                             print("Upgrade price: ", upgrade_price)
+=======
+                        score = self.score_increase.scoreIncrease(score)
+                        self.data["score"] = score
+                        print(score)
+                    elif event.key == pygame.K_z: # add score requirement for below
+                        self.data["robot"]["leg1"] = True
+                    elif event.key == pygame.K_x:
+                        self.data["robot"]["leg2"] = True
+                    elif event.key == pygame.K_c:
+                        self.data["robot"]["body"] = True
+                    elif event.key == pygame.K_v:
+                        self.data["robot"]["arm1"] = True
+                    elif event.key == pygame.K_b:
+                        self.data["robot"]["arm2"] = True
+                    elif event.key == pygame.K_n:
+                        self.data["robot"]["head"] = True
+>>>>>>> data
             pygame.display.flip()
         pygame.quit()
 
@@ -88,3 +124,11 @@ class Controller:
 
     def placeholder(self):
         pass
+
+    def saveload(self):
+        try:
+            with open("data.txt") as f:
+                json.load(f)
+        except:
+            with open("data.txt") as f:
+                json.dump(self.data, f)
