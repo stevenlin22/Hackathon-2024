@@ -3,6 +3,7 @@
 
 # import necessary files and modules
 import pygame
+import json
 
 class Controller:
     # init
@@ -15,6 +16,29 @@ class Controller:
         self.timer = pygame.time.Clock()
 
         self.state = "MAIN"
+
+        self.data = {
+            "score": 0,
+            "upgrades": 0,
+            "items": {
+                "item1": 0,
+                "item2": 0,
+                "item3": 0,
+                # ...
+            },
+            "robot": {
+                "leg1": False,
+                "leg2": False,
+                "body": False,
+                "arm1": False,
+                "arm2": False,
+                "head": False,
+            },
+            "platformer": False,
+        }
+
+        self.saveload()
+
 
 
     # the gameloop manages game state
@@ -31,6 +55,7 @@ class Controller:
     # mainloop is the main game (not the start, or end, etc.)
     def mainloop(self):
 
+
         running = True
         while running:
             self.timer.tick(self.framerate)
@@ -44,5 +69,10 @@ class Controller:
 
     
 
-    def placeholder(self):
-        pass
+    def saveload(self):
+        try:
+            with open("data.txt") as f:
+                pass
+        except:
+            with open("data.txt", "w") as f:
+                pass
