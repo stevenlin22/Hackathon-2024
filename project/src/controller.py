@@ -39,6 +39,7 @@ class Controller:
         }
 
         self.saveload()
+        
         multiplier = 1
         increaseRate = 1
         self.score_increase = Upgrades(multiplier, increaseRate)
