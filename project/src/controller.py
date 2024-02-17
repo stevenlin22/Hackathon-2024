@@ -20,10 +20,10 @@ class Controller:
     # the gameloop manages game state
     def gameloop(self):
         
-        if self.state = "MAIN":
-            mainloop()
-        elif self.state = "PLACEHOLDER":
-            placeholder()
+        if self.state == "MAIN":
+            self.mainloop()
+        elif self.state == "PLACEHOLDER":
+            self.placeholder()
 
 
     
