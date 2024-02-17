@@ -12,6 +12,7 @@ class Controller:
         pygame.init()
 
         self.screen = pygame.display.set_mode([960, 540])
+        self.screen = pygame.display.set_mode([960, 540])
         self.screen.fill("white")
         self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
