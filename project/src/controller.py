@@ -3,17 +3,19 @@
 
 # import necessary files and modules
 import pygame
+from src.upgrades import Upgrades
 
 class Controller:
     # init
     def __init__(self):
         pygame.init()
-
         screen = pygame.display.set_mode([300, 400])
         pygame.display.set_caption("HackBU clicker game")
         framerate = 60
         timer = pygame.time.Clock()
-
+        multiplier = 1
+        increase_rate = 1
+        self.score_increase = Upgrades(multiplier, increase_rate)
         self.state = "MAIN"
 
 
@@ -32,7 +34,7 @@ class Controller:
         running = True
         score = 0
         while running:
-            timer.tick(framerate)
+            # timer.tick(framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
