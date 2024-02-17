@@ -5,10 +5,10 @@
 
 
 # TODO
-1
-2
-3
-4
+1. Hitboxes
+2. Robot and other sprites
+3. Upgrades/Multiplier
+4. Spacebar and mouse click event loops
 5
 6
 7
