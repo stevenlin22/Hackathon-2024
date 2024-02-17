@@ -5,6 +5,7 @@
 import pygame
 
 class Controller:
+    # init
     def __init__(self):
         pygame.init()
 
@@ -22,5 +23,6 @@ class Controller:
 
         pygame.quit()
     
-    def example(self):
+    # the gameloop manages game state
+    def gameloop(self):
         pass
