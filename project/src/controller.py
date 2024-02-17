@@ -11,8 +11,7 @@ class Controller:
     def __init__(self):
         pygame.init()
 
-        self.screen = pygame.display.set_mode([960, 540])
-        self.screen = pygame.display.set_mode([960, 540])
+        self.self.screen = pygame.display.set_mode([960, 540])
         self.screen.fill("white")
         self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
@@ -45,8 +44,10 @@ class Controller:
             "platformer": False,
         }
 
-        self.saveload()
-
+        # self.saveload()
+        
+        increaseRate = 1
+        self.score_increase = Upgrades(increaseRate)
         self.state = "MAIN"
 
 
