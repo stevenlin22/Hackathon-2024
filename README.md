@@ -31,3 +31,6 @@ Robot Leg 1 -
 Robot Leg 2 -  
 Robot Arm 1 -  
 Robot Arm 2 -  
+
+# Other
+Matt: I was thinking that additional to the game, there would be like other buttons that do random stuff (like one button plays music, another button shows some image or something, another does something else, etc.) This could be stuff we consider after completing the core game and would probably require us to call some APIs
