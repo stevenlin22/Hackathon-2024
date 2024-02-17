@@ -7,7 +7,7 @@
 # TODO
 1. Hitboxes (matt: I think we can use the pygame-gui module to set up the basic buttons and stuff)
 2. Robot and other sprites
-3. Upgrades/Multiplier
+3. Upgrades/Multiplier (Steven: I think i have a good idea on how to do these)
 4. Spacebar and mouse click event loops
 5. pass
 6. pass
