@@ -10,7 +10,7 @@ class Controller:
     def __init__(self):
         pygame.init()
 
-        self.screen = pygame.display.set_mode([300, 400])
+        self.screen = pygame.display.set_mode([960, 540])
         pygame.display.set_caption("HackBU clicker game")
         self.framerate = 60
         self.timer = pygame.time.Clock()
