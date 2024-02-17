@@ -3,19 +3,45 @@
 
 # import necessary files and modules
 import pygame
+import json
 from src.upgrades import Upgrades
 
 class Controller:
     # init
     def __init__(self):
         pygame.init()
-        screen = pygame.display.set_mode([300, 400])
+
+        self.self.screen = pygame.display.set_mode([960, 540])
+        self.screen.fill("white")
+        self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
-        framerate = 60
-        timer = pygame.time.Clock()
+        self.self.framerate = 60
+        self.self.timer = pygame.time.Clock()
+
+        self.data = {
+            "score": 0,
+            "upgrades": 0,
+            "items": {
+                "item1": 0,
+                "item2": 0,
+                "item3": 0,
+                # ...
+            },
+            "robot": {
+                "leg1": False,
+                "leg2": False,
+                "body": False,
+                "arm1": False,
+                "arm2": False,
+                "head": False,
+            },
+            "platformer": False,
+        }
+
+        self.saveload()
         multiplier = 1
-        increase_rate = 1
-        self.score_increase = Upgrades(multiplier, increase_rate)
+        increaseRate = 1
+        self.score_increase = Upgrades(multiplier, increaseRate)
         self.state = "MAIN"
 
 
@@ -27,17 +53,23 @@ class Controller:
             self.placeholder()
 
 
+
     # mainloop is the main game (not the start, or end, etc.)
     def mainloop(self):
 
 
         running = True
         score = 0
+        score = 0
         while running:
             # timer.tick(framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        score = self.score_increase.scoreIncrease(score)
+                        print(score)
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         score = self.score_increase.scoreIncrease(score)
