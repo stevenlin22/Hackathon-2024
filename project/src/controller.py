@@ -11,12 +11,12 @@ class Controller:
     def __init__(self):
         pygame.init()
 
-        self.self.screen = pygame.display.set_mode([960, 540])
+        self.screen = pygame.display.set_mode([960, 540])
         self.screen.fill("white")
         self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
-        self.self.framerate = 60
-        self.self.timer = pygame.time.Clock()
+        self.framerate = 60
+        self.timer = pygame.time.Clock()
 
         self.data = {
             "score": 0,
@@ -38,11 +38,10 @@ class Controller:
             "platformer": False,
         }
 
-        self.saveload()
+        # self.saveload()
         
-        multiplier = 1
         increaseRate = 1
-        self.score_increase = Upgrades(multiplier, increaseRate)
+        self.score_increase = Upgrades(increaseRate)
         self.state = "MAIN"
 
 
@@ -61,7 +60,8 @@ class Controller:
 
         running = True
         score = 0
-        score = 0
+        upgrade_price = 25
+        multiplier = 1
         while running:
             # timer.tick(framerate)
             for event in pygame.event.get():
@@ -69,8 +69,18 @@ class Controller:
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        score = self.score_increase.scoreIncrease(score)
-                        print(score)
+                        score = self.score_increase.scoreIncrease(score, multiplier)
+                        print("Score: ", score)
+                        print("multiplier1: ", multiplier)
+                    if event.key == pygame.K_LSHIFT:
+                        print("run")
+                        print("Score2: ", score)
+                        if score >= upgrade_price:
+                            score -= upgrade_price
+                            multiplier = self.score_increase.multiplier(multiplier)
+                            print("Multplier: ", multiplier)
+                            upgrade_price = 25*multiplier
+                            print("Upgrade price: ", upgrade_price)
             pygame.display.flip()
         pygame.quit()
 
