@@ -74,6 +74,18 @@ class Controller:
                         score = self.score_increase.scoreIncrease(score)
                         self.data["score"] = score
                         print(score)
+                    elif event.key == pygame.K_z: # add score requirement for below
+                        self.data["robot"]["leg1"] = True
+                    elif event.key == pygame.K_x:
+                        self.data["robot"]["leg2"] = True
+                    elif event.key == pygame.K_c:
+                        self.data["robot"]["body"] = True
+                    elif event.key == pygame.K_v:
+                        self.data["robot"]["arm1"] = True
+                    elif event.key == pygame.K_b:
+                        self.data["robot"]["arm2"] = True
+                    elif event.key == pygame.K_n:
+                        self.data["robot"]["head"] = True
             pygame.display.flip()
         pygame.quit()
 
