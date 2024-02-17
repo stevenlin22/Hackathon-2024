@@ -53,17 +53,23 @@ class Controller:
             self.placeholder()
 
 
+
     # mainloop is the main game (not the start, or end, etc.)
     def mainloop(self):
 
 
         running = True
         score = 0
+        score = 0
         while running:
             self.timer.tick(self.framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        score = self.score_increase.scoreIncrease(score)
+                        print(score)
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         score = self.score_increase.scoreIncrease(score)
