@@ -11,6 +11,8 @@ class Controller:
 
         screen = pygame.display.set_mode([300, 400])
         pygame.display.set_caption("HackBU clicker game")
+        framerate = 60
+        timer = pygame.time.Clock()
 
         self.state = "MAIN"
 
@@ -31,7 +33,7 @@ class Controller:
 
         running = True
         while running:
-
+            timer.tick(framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
