@@ -15,8 +15,6 @@ class Controller:
         self.framerate = 60
         self.timer = pygame.time.Clock()
 
-        self.state = "MAIN"
-
         self.data = {
             "score": 0,
             "upgrades": 0,
@@ -38,6 +36,8 @@ class Controller:
         }
 
         self.saveload()
+
+        self.state = "MAIN"
 
 
 
@@ -72,7 +72,7 @@ class Controller:
     def saveload(self):
         try:
             with open("data.txt") as f:
-                pass
+                self.data = json.load(f)
         except:
             with open("data.txt", "w") as f:
-                pass
+                json.dump(self.data, f)
