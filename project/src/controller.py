@@ -15,8 +15,11 @@ class Controller:
         self.screen.fill("white")
         self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
-        self.self.framerate = 60
-        self.self.timer = pygame.time.Clock()
+        self.framerate = 60
+        self.timer = pygame.time.Clock()
+        multiplier = 1
+        increaseRate = 1
+        self.score_increase = Upgrades(multiplier, increaseRate)
 
         self.data = {
             "score": 0,
@@ -40,11 +43,7 @@ class Controller:
 
         self.saveload()
         
-        multiplier = 1
-        increaseRate = 1
-        self.score_increase = Upgrades(multiplier, increaseRate)
         self.state = "MAIN"
-
 
     # the gameloop manages game state
     def gameloop(self):
