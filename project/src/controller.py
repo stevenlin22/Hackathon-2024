@@ -17,6 +17,7 @@ class Controller:
         pygame.display.set_caption("HackBU clicker game")
         self.framerate = 60
         self.timer = pygame.time.Clock()
+        
         multiplier = 1
         increaseRate = 1
         self.score_increase = Upgrades(multiplier, increaseRate)
