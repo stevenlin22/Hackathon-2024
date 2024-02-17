@@ -70,10 +70,6 @@ class Controller:
                     if event.key == pygame.K_SPACE:
                         score = self.score_increase.scoreIncrease(score)
                         print(score)
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        score = self.score_increase.scoreIncrease(score)
-                        print(score)
             pygame.display.flip()
         pygame.quit()
 
