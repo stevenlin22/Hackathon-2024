@@ -9,10 +9,10 @@
 2. Robot and other sprites
 3. Upgrades/Multiplier
 4. Spacebar and mouse click event loops
-5
-6
-7
-8
+5. pass
+6. pass
+7. pass
+8. pass
 
 # Members
 name
