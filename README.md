@@ -20,6 +20,10 @@ name
 name
 name
 
+# Classes
+Upgrades Class
+Robot Class
+
 # Buttons and score cost
 Robot head -  
 Robot Body -  
