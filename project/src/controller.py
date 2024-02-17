@@ -83,3 +83,11 @@ class Controller:
 
     def placeholder(self):
         pass
+
+    def saveload(self):
+        try:
+            with open("data.txt") as f:
+                json.load(f)
+        except:
+            with open("data.txt") as f:
+                json.dump(self.data, f)
