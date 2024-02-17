@@ -19,3 +19,11 @@ name
 name
 name
 name
+
+# Buttons and score cost
+Robot head -  
+Robot Body -  
+Robot Leg 1 -  
+Robot Leg 2 -  
+Robot Arm 1 -  
+Robot Arm 2 -  
