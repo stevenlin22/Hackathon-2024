@@ -95,6 +95,7 @@ class Controller:
                         print("Upgrade Cost: ", upgrade_price)
                     if event.key == pygame.K_LSHIFT:
                         #upgrades
+                        self.sound.upgrade_sound()
                         print("run")
                         print("Score2: ", score)
                         if score >= upgrade_price:

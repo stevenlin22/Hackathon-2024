@@ -1,5 +1,5 @@
 # main
-# import necessary modules and 
+# import necessary modules and
 from src.controller import Controller
 
 def main():
