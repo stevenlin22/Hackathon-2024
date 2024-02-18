@@ -14,3 +14,12 @@ class Sound:
     def upgrade_sound(self):
         upgrade_sound = pygame.mixer.Sound("project/assets/upgrade_sound.wav")
         pygame.mixer.Sound.play(upgrade_sound)
+    def part_sound(self):
+        parts_sound = pygame.mixer.Sound("project/assets/Robot-parts.wav")
+        pygame.mixer.Sound.play(parts_sound)
+    def mute_key(self):
+        is_playing = pygame.mixer.music.get_busy()
+        if is_playing is True:
+            pygame.mixer.music.pause()
+        elif is_playing is False:
+            pygame.mixer.music.play()
