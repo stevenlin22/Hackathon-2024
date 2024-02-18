@@ -110,13 +110,11 @@ class Controller:
                             self.sound.part_sound()
                             score -= parts[0]
                             self.data["robot"]["leg1"] = True
-                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_x:
                         if score >= parts[1] and self.data["robot"]["leg2"] is False:
                             self.sound.part_sound()
                             score -= parts[1]
                             self.data["robot"]["leg2"] = True
-                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_c:
                         if score >= parts[2] and self.data["robot"]["body"] is False:
                             self.sound.part_sound()
@@ -218,18 +216,22 @@ class Controller:
         
             if self.data["robot"]["leg1"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg1.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["leg2"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg2.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["body"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/body.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["arm1"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm1.png"), (250,250))
+                self.screen.blit(img, (130, 180))    
             if self.data["robot"]["arm2"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm2.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["head"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
-            
-            self.screen.blit(img, (130, 180))
+                self.screen.blit(img, (130, 180))
 
             fontsize = 20
 
