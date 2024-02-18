@@ -59,8 +59,8 @@ class Controller:
     def gameloop(self):
         if self.state == "MAIN":
             self.mainloop()
-        elif self.state == "PLACEHOLDER":
-            self.placeholder()
+        elif self.state == "END":
+            self.endloop()
 
 
 
@@ -173,6 +173,10 @@ class Controller:
                     if event.key == pygame.K_m:
                         self.sound.mute_key()
 
+                    if event.key == pygame.K_RETURN:
+                        if self.data["robot"]["head"]:
+                            self.state = "END"
+
             score = self.items.update(score, item_rate)
             # print(score)
             
@@ -210,24 +214,27 @@ class Controller:
                 button.draw(score)
                 ypos += 90
         
-            if self.data["robot"]["leg1"] is True:
+            if self.data["robot"]["leg1"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg1.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["leg2"] is True:
+            if self.data["robot"]["leg2"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg2.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["body"] is True:
+            if self.data["robot"]["body"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/body.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["arm1"] is True:
+            if self.data["robot"]["arm1"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm1.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["arm2"] is True:
+            if self.data["robot"]["arm2"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm2.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["head"] is True:
+            if self.data["robot"]["head"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
                 self.screen.blit(img, (130, 180))
+                endprompt = Button(360, 210, 240, 120, self.screen, -1, font, "Press enter to end.", 24, "white")
+                endprompt.draw(0)
+
 
             fontsize = 20
 
@@ -252,12 +259,11 @@ class Controller:
 
     
 
-    def placeholder(self):
-        # some things that could be other state
-        # credits
-        # end scene that plays when the robot is done
-        # etc.
+    def endloop(self):
         pass
+        #TODO: Spawn robot
+        #TODO: Put robot in field of flowers
+        #TODO: Let player move robot around in field
 
     def saveload(self):
         try:
