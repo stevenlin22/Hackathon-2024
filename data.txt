@@ -1,1 +1,1 @@
-{"score": 71, "upgrades": 0, "items": {"item1": 0, "item2": 0, "item3": 0}, "robot": {"leg1": false, "leg2": false, "body": false, "arm1": false, "arm2": false, "head": false}, "platformer": false}
+{"score": 146, "upgrades": 0, "items": {"item1": 0, "item2": 0, "item3": 0}, "robot": {"leg1": true, "leg2": false, "body": false, "arm1": false, "arm2": false, "head": false}, "platformer": false}

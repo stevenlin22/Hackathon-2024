@@ -100,26 +100,38 @@ class Controller:
                         if score >= parts[0]:
                             score -= parts[0]
                             self.data["robot"]["leg1"] = True
+                            img = pygame.image.load("project/assets/leg1.png")
+                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_x:
                         if score >= parts[1]:
                             score -= parts[1]
                             self.data["robot"]["leg2"] = True
+                            img = pygame.image.load("project/assets/leg2.png")
+                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_c:
                         if score >= parts[2]:
                             score -= parts[2]
                             self.data["robot"]["body"] = True
+                            img = pygame.image.load("project/assets/body.png")
+                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_v:
                         if score >= parts[3]:
                             score -= parts[3]
                             self.data["robot"]["arm1"] = True
+                            img = pygame.image.load("project/assets/arm1.png")
+                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_b:
                         if score >= parts[4]:
                             score -= parts[4]
                             self.data["robot"]["arm2"] = True
+                            img = pygame.image.load("project/assets/arm2.png")
+                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_n:
                         if score >= parts[5]:
                             score -= parts[5]
                             self.data["robot"]["head"] = True
+                            img = pygame.image.load("project/assets/head.png")
+                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_1:
                         if score >= items[0]:
                             score -= items[0]
