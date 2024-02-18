@@ -71,6 +71,8 @@ class Controller:
             elif self.state == "END":
                 self.endloop()
             elif self.state == "STOP":
+                with open("data.txt", "w") as f:
+                    json.dump(self.data, f)
                 running = False
 
 
@@ -117,31 +119,43 @@ class Controller:
                             self.sound.part_sound()
                             score -= parts[0]
                             self.data["robot"]["leg1"] = True
+                        else:
+                            self.sound.error_sound()
                     if event.key == pygame.K_x:
                         if score >= parts[1] and self.data["robot"]["leg2"] is False:
                             self.sound.part_sound()
                             score -= parts[1]
                             self.data["robot"]["leg2"] = True
+                        else:
+                            self.sound.error_sound()
                     if event.key == pygame.K_c:
                         if score >= parts[2] and self.data["robot"]["body"] is False:
                             self.sound.part_sound()
                             score -= parts[2]
                             self.data["robot"]["body"] = True
+                        else:
+                            self.sound.error_sound()
                     if event.key == pygame.K_v:
                         if score >= parts[3] and self.data["robot"]["arm1"] is False:
                             self.sound.part_sound()
                             score -= parts[3]
                             self.data["robot"]["arm1"] = True
+                        else:
+                            self.sound.error_sound()
                     if event.key == pygame.K_b:
                         if score >= parts[4] and self.data["robot"]["arm2"] is False:
                             self.sound.part_sound()
                             score -= parts[4]
                             self.data["robot"]["arm2"] = True
+                        else:
+                            self.sound.error_sound()
                     if event.key == pygame.K_n:
                         if score >= parts[5] and self.data["robot"]["head"] is False:
                             self.sound.part_sound()
                             score -= parts[5]
                             self.data["robot"]["head"] = True
+                        else:
+                            self.sound.error_sound()
 
                     # Item buys (code rlly repetitive lolo)
                     if event.key == pygame.K_1:
@@ -252,6 +266,10 @@ class Controller:
             current_score = "Score (space): {}".format(score)
             scorebutton = Button(10, 440, 200, 90, self.screen, -1, font, current_score, fontsize)
             scorebutton.draw(0)
+            
+            current_items = "Items : {}/s".format(item_rate)
+            itembutton = Button(265, 10, 200, 90, self.screen, -1, font, current_items, fontsize)
+            itembutton.draw(0)
 
             current_multiplier = "Multiplier (shift): {}".format(multiplier)
             multbutton = Button(265, 440, 200, 90, self.screen, -1, font, current_multiplier, fontsize)
@@ -301,7 +319,7 @@ class Controller:
             jumpscare_rate = random.randint(1, 5000)
             if jumpscare_rate == 69:
                 jumpscare = pygame.image.load("project/assets/jumpscare.png")
-                jumpscare = pygame.transform.scale(jumpscare, (self.width, self.length))
+                jumpscare = pygame.transform.scale(jumpscare, (self.screenwidth, self.screenheight))
                 self.screen.blit(jumpscare, (0, 0))
                 self.sound.boo_sound()
                 pygame.display.flip()

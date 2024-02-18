@@ -15,6 +15,9 @@ class Sound:
     def tap_sound(self):
         tap_sound = pygame.mixer.Sound("project/assets/tap_sound.wav")
         pygame.mixer.Sound.play(tap_sound)
+    def error_sound(self):
+        error = pygame.mixer.Sound("project/assets/error.mp3")
+        pygame.mixer.Sound.play(error)
     def upgrade_sound(self):
         upgrade_sound = pygame.mixer.Sound("project/assets/upgrade_sound.wav")
         pygame.mixer.Sound.play(upgrade_sound)
