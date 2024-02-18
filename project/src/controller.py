@@ -179,7 +179,7 @@ class Controller:
             left = pygame.transform.scale(left, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(left, (0,0))
 
-            right = pygame.image.load('project/assets/RBackground.png')
+            right = pygame.image.load('project/assets/RBackground.jpg')
             right = pygame.transform.scale(right, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(right, ((self.screenwidth / 2) + 5, 0))
 
