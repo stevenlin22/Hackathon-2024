@@ -17,7 +17,7 @@ class Item:
         elif item_type == 3:
             item_rate = 25
         elif item_type == 4:
-            item_rate = 2000
+            item_rate = 200
         elif item_type == 5:
             item_rate = 1000
         elif item_type == 6:
