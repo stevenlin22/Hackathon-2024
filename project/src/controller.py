@@ -259,7 +259,7 @@ class Controller:
 
     
 
-    def endloop(self)
+    def endloop(self):
         self.screen.fill("black")
         pygame.display.flip()
         pass
