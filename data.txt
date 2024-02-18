@@ -1,1 +1,1 @@
-{"score": 22, "upgrade_price": 275, "multiplier": 11, "items": {"gear": 0, "wd40": 0, "cpu": 0, "thingy": 0, "wires": 0, "sheets": 0}, "item_rate": 351, "robot": {"leg1": false, "leg2": false, "body": false, "arm1": false, "arm2": false, "head": false}, "platformer": false}
+{"score": 111907610, "upgrade_price": 275, "multiplier": 11, "items": {"gear": 0, "wd40": 0, "cpu": 0, "thingy": 0, "wires": 0, "sheets": 0}, "item_rate": 31979120, "robot": {"leg1": true, "leg2": true, "body": true, "arm1": true, "arm2": true, "head": true}, "platformer": false}

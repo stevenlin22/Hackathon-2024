@@ -27,6 +27,9 @@ class Sound:
     def boo_sound(self):
         boo_sound = pygame.mixer.Sound("project/assets/boo.mp3")
         pygame.mixer.Sound.play(boo_sound)
+    def win_sound(self):
+        win = pygame.mixer.Sound("project/assets/win.mp3")
+        pygame.mixer.Sound.play(win)
     def mute_key(self):
         is_playing = pygame.mixer.music.get_busy()
         if is_playing is True:

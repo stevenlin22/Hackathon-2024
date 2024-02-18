@@ -151,7 +151,7 @@ class Controller:
                             self.sound.error_sound()
                     if event.key == pygame.K_n:
                         if score >= parts[5] and self.data["robot"]["head"] is False:
-                            self.sound.part_sound()
+                            self.sound.win_sound()
                             score -= parts[5]
                             self.data["robot"]["head"] = True
                         else:
