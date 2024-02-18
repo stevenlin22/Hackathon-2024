@@ -110,19 +110,16 @@ class Controller:
                             self.sound.part_sound()
                             score -= parts[0]
                             self.data["robot"]["leg1"] = True
-                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_x:
                         if score >= parts[1] and self.data["robot"]["leg2"] is False:
                             self.sound.part_sound()
                             score -= parts[1]
                             self.data["robot"]["leg2"] = True
-                            self.screen.blit(img, (100, 100))
                     if event.key == pygame.K_c:
                         if score >= parts[2] and self.data["robot"]["body"] is False:
                             self.sound.part_sound()
                             score -= parts[2]
                             self.data["robot"]["body"] = True
-                            img = pygame.image.load("project/assets/body.png")
                     if event.key == pygame.K_v:
                         if score >= parts[3] and self.data["robot"]["arm1"] is False:
                             self.sound.part_sound()
@@ -180,7 +177,7 @@ class Controller:
                         self.sound.mute_key()
 
             score = self.items.update(score, item_rate)
-            print(score)
+            # print(score)
             
             # Display BG
             left = pygame.image.load('project/assets/Background.png')
