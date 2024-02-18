@@ -194,14 +194,19 @@ class Controller:
             xpos = 525
             ypos = 10
 
-            for i in range(2):
-                for j in range(6):
-                    button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, parts[j], font, parts_text[j], fontsize)
-                    button.draw(score)
-                    ypos += 90
-                xpos += 215
-                fontsize -= 4
+            for j in range(6):
+                button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, parts[j], font, parts_text[j], fontsize)
+                button.draw(score)
+                ypos += 90
+            
+            xpos += 215
+            fontsize -= 4
+            ypos = 10
 
+            for j in range(6):
+                button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, items[j], font, item_text[j], fontsize)
+                button.draw(score)
+                ypos += 90
 
             pygame.display.flip()
         pygame.quit()
