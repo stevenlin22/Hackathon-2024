@@ -30,3 +30,10 @@ class Sound:
             pygame.mixer.music.pause()
         elif is_playing is False:
             pygame.mixer.music.play()
+    def mute_image(self):
+        is_playing = pygame.mixer.music.get_busy()
+        if is_playing is True:
+            image = pygame.image.load("project/assets/sound_on.png")
+        if is_playing is False:
+            image = pygame.image.load("project/assets/mute.png")
+        return image

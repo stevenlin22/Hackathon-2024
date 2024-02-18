@@ -86,7 +86,7 @@ class Controller:
         items = [100, 750, 3000, 20000, 111111, 500000]
         item_text = ['(1) Gear (100) +1/s','(2) WD40 (750) +5/s','(3) CPU (3000) +25/s','(4) Thingy (20K) +200/s','(5) New Wires (111K) +1K/s','(6)Gold (500K) +4.5k/s']
         item_rate = self.data["item_rate"]
-
+        mute_image = pygame.image.load("project/assets/sound_on.png")
         self.sound.play_music()
         
         while self.state == "MAIN":
@@ -182,7 +182,7 @@ class Controller:
                             self.data["item_rate"] += item_rate
                     if event.key == pygame.K_m:
                         self.sound.mute_key()
-
+                        mute_image = self.sound.mute_image()
                     if event.key == pygame.K_RETURN:
                         if self.data["robot"]["head"]:
                             self.state = "END"
@@ -261,7 +261,8 @@ class Controller:
             multcosttextRect = multcosttext.get_rect()
             multcosttextRect.center = (multbutton.rect.centerx, multbutton.rect.centery + 15)
             self.screen.blit(multcosttext, multcosttextRect)
-            
+            mute_image = pygame.transform.scale(mute_image, (100,100))
+            self.screen.blit(mute_image, (0,0))
             # Display everything
             pygame.display.flip()
 
