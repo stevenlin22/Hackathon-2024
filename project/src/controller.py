@@ -42,7 +42,7 @@ class Controller:
             "platformer": False,
         }
 
-        self.saveload()
+        self.data = self.saveload()
 
         self.state = "MAIN"
 
