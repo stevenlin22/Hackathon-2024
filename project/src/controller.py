@@ -238,11 +238,11 @@ class Controller:
             fontsize = 20
 
             # Draw score and multiplier
-            current_score = "Score: {}".format(score)
+            current_score = "Score (space): {}".format(score)
             scorebutton = Button(10, 440, 200, 90, self.screen, -1, font, current_score, fontsize)
             scorebutton.draw(0)
 
-            current_multiplier = "Multiplier: {}".format(multiplier)
+            current_multiplier = "Multiplier (shift): {}".format(multiplier)
             multbutton = Button(265, 440, 200, 90, self.screen, -1, font, current_multiplier, fontsize)
             multbutton.draw(0)
             multcostfont = pygame.font.Font(font, 12)
