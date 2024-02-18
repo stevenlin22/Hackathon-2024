@@ -13,6 +13,7 @@ from src.ending import Background
 from src.robot import Robot
 
 class Controller:
+    
     # init
     def __init__(self):
         pygame.init()
@@ -20,15 +21,16 @@ class Controller:
         self.screenheight = 540
         self.screen = pygame.display.set_mode([self.screenwidth, self.screenheight])
         self.screen.fill("white")
-        self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
         self.framerate = 60
+
         increaseRate = 1
         self.score_increase = Upgrades(increaseRate)
         self.items = Item()
         self.sound = Sound()
-        self.ending = Background(0, 0, self.width, self.length)
-        self.ending_robot = Robot(self.width/2 - 50, self.length/2)
+
+        self.ending = Background(0, 0, self.screenwidth, self.screenheight)
+        self.ending_robot = Robot(self.screenwidth/2 - 50, self.screenheight/2)
 
         self.data = {
             "score": 0,
@@ -63,14 +65,13 @@ class Controller:
     # the gameloop manages game state
     def gameloop(self):
         running = True
-        while running == True:
+        while running:
             if self.state == "MAIN":
                 self.mainloop()
             elif self.state == "END":
                 self.endloop()
             elif self.state == "STOP":
                 running = False
-
 
 
 
@@ -85,6 +86,7 @@ class Controller:
         items = [100, 750, 3000, 20000, 111111, 500000]
         item_text = ['(1) Gear (100) +1/s','(2) WD40 (750) +5/s','(3) CPU (3000) +25/s','(4) Thingy (20K) +200/s','(5) New Wires (111K) +1K/s','(6)Gold (500K) +4.5k/s']
         item_rate = self.data["item_rate"]
+
         self.sound.play_music()
         
         while self.state == "MAIN":
@@ -263,8 +265,6 @@ class Controller:
             # Display everything
             pygame.display.flip()
 
-
-
     
 
     def endloop(self):
@@ -296,6 +296,7 @@ class Controller:
             endtextRect = endtext.get_rect()
             endtextRect.center = (480, 120)
             self.screen.blit(endtext, endtextRect)
+
             jumpscare_rate = random.randint(1, 5000)
             if jumpscare_rate == 69:
                 jumpscare = pygame.image.load("project/assets/jumpscare.png")
@@ -305,13 +306,10 @@ class Controller:
                 pygame.display.flip()
                 pygame.time.wait(5000)
                 self.state = "STOP"
-            else:
-                pass
             
             pygame.display.flip()
-        #TODO: Spawn robot
-        #TODO: Put robot in field of flowers
-        #TODO: Let player move robot around in field
+
+
 
     def saveload(self):
         try:
