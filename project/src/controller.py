@@ -191,23 +191,23 @@ class Controller:
                 ypos += 90
         
             if self.data["robot"]["leg1"] is True:
-                img = pygame.image.load("project/assets/leg1.png")
-                self.screen.blit(img, (100, 100))
+                img = pygame.transform.scale(pygame.image.load("project/assets/leg1.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["leg2"] is True:
-                img = pygame.image.load("project/assets/leg2.png")
-                self.screen.blit(img, (100, 100))
+                img = pygame.transform.scale(pygame.image.load("project/assets/leg2.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["body"] is True:
-                img = pygame.image.load("project/assets/body.png")
-                self.screen.blit(img, (100, 100))
+                img = pygame.transform.scale(pygame.image.load("project/assets/body.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["arm1"] is True:
-                img = pygame.image.load("project/assets/arm1.png")
-                self.screen.blit(img, (100, 100))
+                img = pygame.transform.scale(pygame.image.load("project/assets/arm1.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["arm2"] is True:
-                img = pygame.image.load("project/assets/arm2.png")
-                self.screen.blit(img, (100, 100))
+                img = pygame.transform.scale(pygame.image.load("project/assets/arm2.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             if self.data["robot"]["head"] is True:
-                img = pygame.image.load("project/assets/head.png")
-                self.screen.blit(img, (100, 100))
+                img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
+                self.screen.blit(img, (130, 180))
             pygame.display.flip()
         pygame.quit()
 
