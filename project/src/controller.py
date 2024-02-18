@@ -176,6 +176,7 @@ class Controller:
                     if event.key == pygame.K_RETURN:
                         if self.data["robot"]["head"]:
                             self.state = "END"
+                            running = False
 
             score = self.items.update(score, item_rate)
             # print(score)
@@ -253,9 +254,10 @@ class Controller:
             self.screen.blit(multcosttext, multcosttextRect)
             
             # Display everything
+            
             pygame.display.flip()
 
-        pygame.quit()
+
 
     
 
