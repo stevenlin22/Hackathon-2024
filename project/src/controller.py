@@ -105,7 +105,7 @@ class Controller:
                         score = self.score_increase.scoreIncrease(score, multiplier)
                         self.data["score"] = score
                         
-                    if event.key == pygame.K_LSHIFT:
+                    if event.key == pygame.K_LSHIFT or event.key == pygame.K_RSHIFT:
                         #upgrades
                         if score >= upgrade_price:
                             self.sound.upgrade_sound()
