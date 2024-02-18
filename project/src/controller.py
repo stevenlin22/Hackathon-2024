@@ -57,10 +57,14 @@ class Controller:
 
     # the gameloop manages game state
     def gameloop(self):
-        if self.state == "MAIN":
-            self.mainloop()
-        elif self.state == "END":
-            self.endloop()
+        running = True
+        while running == True:
+            if self.state == "MAIN":
+                self.mainloop()
+            elif self.state == "END":
+                self.endloop()
+            elif self.state == "STOP":
+                running = False
 
 
 
@@ -69,7 +73,6 @@ class Controller:
     def mainloop(self):
 
         score = self.data["score"]
-        running = True
         upgrade_price = self.data["upgrade_price"]
         multiplier = 25
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
@@ -79,13 +82,13 @@ class Controller:
         item_rate = self.data["item_rate"]
         self.sound.play_music()
         
-        while running:
+        while self.state == "MAIN":
             # timer.tick(framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     with open("data.txt", "w") as f:
                         json.dump(self.data, f)
-                    running = False
+                    self.state = "STOP"
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         #Clicker part
@@ -262,8 +265,10 @@ class Controller:
     
 
     def endloop(self):
-        running = True
-        while running:
+        while self.state == "END":
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.state = "STOP"
             self.screen.fill("black")
             pygame.display.flip()
         pass
