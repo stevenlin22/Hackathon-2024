@@ -24,10 +24,12 @@ class Controller:
             "score": 0,
             "upgrades": 0,
             "items": {
-                "item1": 0,
-                "item2": 0,
-                "item3": 0,
-                # ...
+                "gear": 0,
+                "wd40": 0,
+                "cpu": 0,
+                "thingy": 0,
+                "wires": 0,
+                "sheets": 0
             },
             "robot": {
                 "leg1": False,
