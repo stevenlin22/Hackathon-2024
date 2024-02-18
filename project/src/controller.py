@@ -123,6 +123,10 @@ class Controller:
     
 
     def placeholder(self):
+        # some things that could be other states:
+        # credits
+        # end scene that plays when the robot is done
+        # etc.
         pass
 
     def saveload(self):
