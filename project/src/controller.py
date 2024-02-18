@@ -132,34 +132,43 @@ class Controller:
                         if score >= parts[5] and self.data["robot"]["head"] is False:
                             score -= parts[5]
                             self.data["robot"]["head"] = True
+
+                    # Item buys (code rlly repetitive lolo)
                     if event.key == pygame.K_1:
                         if score >= items[0]:
                             score -= items[0]
                             item_rate += self.items.item_type(1)
+                            self.data["items"]["gear"] += 1
                     if event.key == pygame.K_2:
                         if score >= items[1]:
                             score -= items[1]
                             item_rate += self.items.item_type(2)
+                            self.data["items"]["wd40"] += 1
                     if event.key == pygame.K_3:
                         if score >= items[2]:
                             score -= items[2]
                             item_rate += self.items.item_type(3)
+                            self.data["items"]["cpu"] += 1
                     if event.key == pygame.K_4:
                         if score >= items[3]:
                             score -= items[3]
                             item_rate += self.items.item_type(4)
+                            self.data["items"]["thingy"] += 1
                     if event.key == pygame.K_5:
                         if score >= items[4]:
                             score -= items[4]
                             item_rate += self.items.item_type(5)
+                            self.data["items"]["wires"] += 1
                     if event.key == pygame.K_6:
                         if score >= items[5]:
                             score -= items[5]
                             item_rate += self.items.item_type(6)
+                            self.data["items"]["sheets"] += 1
+
             score = self.items.update(score, item_rate)
             print(score)
             
-            #TODO: display everything
+            # Display BG
             left = pygame.image.load('project/assets/Background.png')
             left = pygame.transform.scale(left, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(left, (0,0))
@@ -195,22 +204,18 @@ class Controller:
         
             if self.data["robot"]["leg1"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg1.png"), (250,250))
-                self.screen.blit(img, (130, 180))
             if self.data["robot"]["leg2"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg2.png"), (250,250))
-                self.screen.blit(img, (130, 180))
             if self.data["robot"]["body"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/body.png"), (250,250))
-                self.screen.blit(img, (130, 180))
             if self.data["robot"]["arm1"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm1.png"), (250,250))
-                self.screen.blit(img, (130, 180))
             if self.data["robot"]["arm2"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm2.png"), (250,250))
-                self.screen.blit(img, (130, 180))
             if self.data["robot"]["head"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
-                self.screen.blit(img, (130, 180))
+            
+            self.screen.blit(img, (130, 180))
 
             fontsize = 20
 
