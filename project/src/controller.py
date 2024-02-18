@@ -214,11 +214,11 @@ class Controller:
             fontsize = 20
 
             # Draw score and multiplier
-            current_score = f"Score: {score} (press space)"
+            current_score = str("Score: {}".format(score))
             scorebutton = Button(10, 440, 200, 90, self.screen, current_score, font, -1, fontsize)
             scorebutton.draw(0)
 
-            current_multiplier = f"Multipler: {multiplier} (buy with shift)"
+            current_multiplier = str("Multiplier: {}".format(multiplier))
             multbutton = Button(265, 440, 200, 90, self.screen, current_multiplier, font, -1, fontsize)
             multbutton.draw(0)
             
