@@ -1,0 +1,1 @@
+{"score": 10000000, "upgrade_price": 0, "multiplier": 0, "items": {"gear": 0, "wd40": 0, "cpu": 0, "thingy": 0, "wires": 0, "sheets": 0}, "item_rate": 0, "robot": {"leg1": false, "leg2": false, "body": false, "arm1": false, "arm2": false, "head": false}, "platformer": false}

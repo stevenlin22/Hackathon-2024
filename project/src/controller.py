@@ -3,6 +3,7 @@
 
 # import necessary files and modules
 import pygame
+import random
 import json
 from src.upgrades import Upgrades
 from src.items import Item
@@ -290,12 +291,22 @@ class Controller:
             image = pygame.transform.scale(image, (100,100))
             self.ending_robot.draw(self.screen, image)
 
-            endfont = pygame.font.Font('project/assets/font.ttf', 32)
+            endfont = pygame.font.Font('project/assets/font.ttf', 64)
             endtext = endfont.render("Enjoy.", True, "black")
             endtextRect = endtext.get_rect()
             endtextRect.center = (480, 120)
             self.screen.blit(endtext, endtextRect)
-
+            jumpscare_rate = random.randint(1, 5000)
+            if jumpscare_rate == 69:
+                jumpscare = pygame.image.load("project/assets/jumpscare.png")
+                jumpscare = pygame.transform.scale(jumpscare, (self.width, self.length))
+                self.screen.blit(jumpscare, (0, 0))
+                self.sound.boo_sound()
+                pygame.display.flip()
+                pygame.time.wait(5000)
+                self.state = "STOP"
+            else:
+                pass
             
             pygame.display.flip()
         #TODO: Spawn robot

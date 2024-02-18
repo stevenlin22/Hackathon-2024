@@ -21,6 +21,9 @@ class Sound:
     def part_sound(self):
         parts_sound = pygame.mixer.Sound("project/assets/Robot-parts.wav")
         pygame.mixer.Sound.play(parts_sound)
+    def boo_sound(self):
+        boo_sound = pygame.mixer.Sound("project/assets/boo.mp3")
+        pygame.mixer.Sound.play(boo_sound)
     def mute_key(self):
         is_playing = pygame.mixer.music.get_busy()
         if is_playing is True:
