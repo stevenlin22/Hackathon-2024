@@ -37,6 +37,7 @@ class Controller:
                 "wires": 0,
                 "sheets": 0
             },
+            "item_rate": 0,
             "robot": {
                 "leg1": False,
                 "leg2": False,
@@ -69,13 +70,13 @@ class Controller:
 
         score = self.data["score"]
         running = True
-        upgrade_price = 25
+        upgrade_price = self.data["upgrade_price"]
         multiplier = self.data["multiplier"]
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
         parts_text = ['(z)Left Leg(1000)','(x)Right Leg (2500)', '(c)Body(10K)','(v)Right Arm(50K)','(b)Left Arm(100K)','(n)Head(1M)']
         items = [100, 750, 3000, 20000, 111111, 500000]
         item_text = ['(1) Gear (100) +1/s','(2) WD40 (750) +5/s','(3) CPU (3000) +25/s','(4) Thingy (20K) +200/s','(5) New Wires (111K) +1K/s','(6)Gold (500K) +4.5k/s']
-        item_rate = 0
+        item_rate = self.data["item_rate"]
         self.sound.play_music()
         
         while running:
