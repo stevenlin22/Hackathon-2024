@@ -44,7 +44,7 @@ class Controller:
             "platformer": False,
         }
 
-        # self.saveload()
+        self.data = self.saveload()
         
         increaseRate = 1
         self.score_increase = Upgrades(increaseRate)
