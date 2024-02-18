@@ -79,11 +79,9 @@ class Controller:
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        #Clicker part
                         score = self.score_increase.scoreIncrease(score, multiplier)
                         print("Score: ", score)
                         print("multiplier1: ", multiplier)
-                        print("Upgrade Cost: ", upgrade_price)
                     if event.key == pygame.K_LSHIFT:
                         #upgrades
                         print("run")
