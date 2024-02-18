@@ -40,9 +40,8 @@ class Controller:
             "platformer": False,
         }
 
-        increaseRate = 1
-        self.score_increase = Upgrades(increaseRate)
         self.saveload()
+
         self.state = "MAIN"
 
 
@@ -70,6 +69,8 @@ class Controller:
             # timer.tick(framerate)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    with open("data.txt", "w") as f:
+                        json.dump(self.data, f)
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
