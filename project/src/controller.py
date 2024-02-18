@@ -203,7 +203,7 @@ class Controller:
                 ypos += 90
             
             xpos += 215
-            fontsize -= 4
+            fontsize -= 6
             ypos = 10
 
             for j in range(6):
