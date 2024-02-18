@@ -245,6 +245,11 @@ class Controller:
             current_multiplier = "Multiplier: {}".format(multiplier)
             multbutton = Button(265, 440, 200, 90, self.screen, -1, font, current_multiplier, fontsize)
             multbutton.draw(0)
+            multcostfont = pygame.font.Font(font, 12)
+            multcosttext = multcostfont.render(f"Cost: {upgrade_price}", True, "black")
+            multcosttextRect = multcosttext.get_rect()
+            multcosttextRect.center = (multbutton.rect.centerx, multbutton.rect.centery + 15)
+            self.screen.blit(multcosttext, multcosttextRect)
             
             # Display everything
             pygame.display.flip()
