@@ -1,8 +1,7 @@
 # Hackathon-2024
 
 # Idea: Robot Game
-## Subheading
-
+HackBU needs a new robot (why? who knows), and we're going to build it! Gain enough score to buy the robot!! Quick!!
 
 # TODO
 1. Hitboxes (matt: I think we can use the pygame-gui module to set up the basic buttons and stuff)
