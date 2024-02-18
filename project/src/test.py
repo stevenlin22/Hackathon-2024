@@ -175,3 +175,22 @@ while running:
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
+text0 = font.render('Score: '+ str(score), True, "black")
+textRect0 = text0.get_rect()
+textRect0.center = ( (110/960)*screenwidth , (485/540)*screenheight-10)
+textp = font2.render('(press space)', True, "black")
+textRectp = textp.get_rect()
+textRectp.center = ( (110/960)*screenwidth , (485/540)*screenheight+18)
+
+textm = font.render('Multiplier: '+ str(multiplier), True, "black")
+textRectm = textm.get_rect()
+textRectm.center = ( (365/960)*screenwidth , (485/540)*screenheight)
+
+
+
+pygame.draw.rect(screen, "gray", pygame.Rect((1/96)*screenwidth, (44/54)*screenheight, 200, 90))
+pygame.draw.rect(screen, "gray", pygame.Rect((265/960)*screenwidth, (44/54)*screenheight, 200, 90))
+screen.blit(text0, textRect0)
+screen.blit(textp, textRectp)
+screen.blit(textm, textRectm)

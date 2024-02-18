@@ -208,7 +208,21 @@ class Controller:
             if self.data["robot"]["head"] is True:
                 img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
                 self.screen.blit(img, (130, 180))
+
+            fontsize = 20
+
+            # Draw score and multiplier
+            current_score = f"Score: {score} (press space)"
+            scorebutton = Button(10, 440, 200, 90, self.screen, current_score, font, -1, fontsize)
+            scorebutton.draw(0)
+
+            current_multiplier = f"Multipler: {multiplier} (buy with shift)"
+            multbutton = Button(265, 440, 200, 90, self.screen, current_multiplier, font, -1, fontsize)
+            multbutton.draw(0)
+            
+            # Display everything
             pygame.display.flip()
+
         pygame.quit()
 
     
