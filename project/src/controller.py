@@ -9,6 +9,7 @@ from src.items import Item
 from src.buttons import Button
 from src.music import Sound
 from src.ending import Background
+from src.robot import Robot
 
 class Controller:
     # init
@@ -26,6 +27,7 @@ class Controller:
         self.items = Item()
         self.sound = Sound()
         self.ending = Background(0, 0, self.width, self.length)
+        self.ending_robot = Robot(self.width/2 - 50, self.length/2)
 
         self.data = {
             "score": 0,
@@ -266,6 +268,7 @@ class Controller:
 
     def endloop(self):
         self.sound.ending_music()
+        image = pygame.image.load("project/assets/robot_down.png")
         while self.state == "END":
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -273,13 +276,19 @@ class Controller:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_w or event.key == pygame.K_UP:
                         self.ending.up()
+                        image = self.ending_robot.up()
                     if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                         self.ending.right()
+                        image = self.ending_robot.right()
                     if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                         self.ending.left()
+                        image = self.ending_robot.left()
                     if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                         self.ending.down()
+                        image = self.ending_robot.down()
             self.ending.draw(self.screen)
+            image = pygame.transform.scale(image, (100,100))
+            self.ending_robot.draw(self.screen, image)
             pygame.display.flip()
         #TODO: Spawn robot
         #TODO: Put robot in field of flowers
