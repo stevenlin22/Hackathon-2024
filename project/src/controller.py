@@ -27,7 +27,8 @@ class Controller:
 
         self.data = {
             "score": 0,
-            "upgrades": 0,
+            "upgrade_price": 0,
+            "multiplier": 0,
             "items": {
                 "gear": 0,
                 "wd40": 0,
@@ -97,7 +98,9 @@ class Controller:
                             self.sound.upgrade_sound()
                             score -= upgrade_price
                             multiplier = self.score_increase.multiplier(multiplier)
+                            self.data["multiplier"] = multiplier
                             upgrade_price = 25 * multiplier
+                            self.data["upgrade_price"] = upgrade_price
                     if event.key == pygame.K_z: # add score requirement for below
                         if score >= parts[0] and self.data["robot"]["leg1"] is False:
                             self.sound.part_sound()
