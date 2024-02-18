@@ -17,13 +17,10 @@ class Controller:
         pygame.display.set_caption("HackBU clicker game")
         self.framerate = 60
         self.timer = pygame.time.Clock()
-<<<<<<< HEAD
-=======
         
         multiplier = 1
         increaseRate = 1
         self.score_increase = Upgrades(multiplier, increaseRate)
->>>>>>> data
 
         self.data = {
             "score": 0,
@@ -45,15 +42,8 @@ class Controller:
             "platformer": False,
         }
 
-<<<<<<< HEAD
-        # self.saveload()
-        
-        increaseRate = 1
-        self.score_increase = Upgrades(increaseRate)
-=======
         self.saveload()
 
->>>>>>> data
         self.state = "MAIN"
 
 
@@ -74,12 +64,6 @@ class Controller:
         score = self.data["score"]
 
         running = True
-<<<<<<< HEAD
-        score = 0
-        upgrade_price = 25
-        multiplier = 1
-=======
->>>>>>> data
         while running:
             # timer.tick(framerate)
             for event in pygame.event.get():
@@ -87,7 +71,6 @@ class Controller:
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-<<<<<<< HEAD
                         score = self.score_increase.scoreIncrease(score, multiplier)
                         print("Score: ", score)
                         print("multiplier1: ", multiplier)
@@ -100,7 +83,6 @@ class Controller:
                             print("Multplier: ", multiplier)
                             upgrade_price = 25*multiplier
                             print("Upgrade price: ", upgrade_price)
-=======
                         score = self.score_increase.scoreIncrease(score)
                         self.data["score"] = score
                         print(score)
@@ -116,7 +98,6 @@ class Controller:
                         self.data["robot"]["arm2"] = True
                     elif event.key == pygame.K_n:
                         self.data["robot"]["head"] = True
->>>>>>> data
             pygame.display.flip()
         pygame.quit()
 
