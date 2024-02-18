@@ -11,7 +11,7 @@ class Button:
         self.rect = pygame.Rect(x, y, w, h)
         self.center = self.rect.center
         self.font = pygame.font.Font(font, textsize)
-        self.text = font.render(text, True, "black")
+        self.text = self.font.render(text, True, "black")
         self.cost = cost
         self.color = color
 
