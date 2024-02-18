@@ -8,6 +8,7 @@ from src.upgrades import Upgrades
 from src.items import Item
 from src.buttons import Button
 from src.music import Sound
+from src.ending import Background
 
 class Controller:
     # init
@@ -24,6 +25,7 @@ class Controller:
         self.score_increase = Upgrades(increaseRate)
         self.items = Item()
         self.sound = Sound()
+        self.ending = Background(0, 0, self.width, self.length)
 
         self.data = {
             "score": 0,
@@ -235,7 +237,7 @@ class Controller:
             if self.data["robot"]["head"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-                endprompt = Button(360, 210, 240, 120, self.screen, -1, font, "Press enter to end.", 24, "white")
+                endprompt = Button(360, 210, 240, 120, self.screen, -1, font, 'Press [enter] for the "Ending".', 15, "white")
                 endprompt.draw(0)
 
 
@@ -268,7 +270,16 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.state = "STOP"
-            pygame.surface.Surface.fill(self.screen, 'black')
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_w or event.key == pygame.K_UP:
+                        self.ending.up()
+                    if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                        self.ending.right()
+                    if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                        self.ending.left()
+                    if event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                        self.ending.down()
+            self.ending.draw(self.screen)
             pygame.display.flip()
         #TODO: Spawn robot
         #TODO: Put robot in field of flowers
