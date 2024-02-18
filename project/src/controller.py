@@ -90,21 +90,14 @@ class Controller:
                         self.sound.tap_sound()
                         score = self.score_increase.scoreIncrease(score, multiplier)
                         self.data["score"] = score
-                        print("Score: ", score)
-                        print("multiplier1: ", multiplier)
-                        print("Upgrade Cost: ", upgrade_price)
+                        
                     if event.key == pygame.K_LSHIFT:
                         #upgrades
-                        print("run")
-                        print("Score2: ", score)
                         if score >= upgrade_price:
                             self.sound.upgrade_sound()
                             score -= upgrade_price
                             multiplier = self.score_increase.multiplier(multiplier)
-                            print("Multplier: ", multiplier)
                             upgrade_price = 25 * multiplier
-                            print("Upgrade price: ", upgrade_price)
-                        print(score)
                     if event.key == pygame.K_z: # add score requirement for below
                         if score >= parts[0] and self.data["robot"]["leg1"] is False:
                             self.sound.part_sound()
