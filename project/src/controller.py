@@ -210,24 +210,27 @@ class Controller:
                 button.draw(score)
                 ypos += 90
         
-            if self.data["robot"]["leg1"] is True:
+            if self.data["robot"]["leg1"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg1.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["leg2"] is True:
+            if self.data["robot"]["leg2"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/leg2.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["body"] is True:
+            if self.data["robot"]["body"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/body.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["arm1"] is True:
+            if self.data["robot"]["arm1"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm1.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["arm2"] is True:
+            if self.data["robot"]["arm2"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/arm2.png"), (250,250))
                 self.screen.blit(img, (130, 180))
-            if self.data["robot"]["head"] is True:
+            if self.data["robot"]["head"]:
                 img = pygame.transform.scale(pygame.image.load("project/assets/head.png"), (250,250))
                 self.screen.blit(img, (130, 180))
+                endprompt = Button(360, 210, 240, 120, self.screen, -1, font, "Press enter to end.", 24, "white")
+                endprompt.draw(0)
+
 
             fontsize = 20
 
