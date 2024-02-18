@@ -5,6 +5,7 @@
 import pygame
 import json
 from src.upgrades import Upgrades
+from src.items import Item
 
 class Controller:
     # init
@@ -16,9 +17,9 @@ class Controller:
         self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
         self.framerate = 60
-        self.timer = pygame.time.Clock()
         increaseRate = 1
         self.score_increase = Upgrades(increaseRate)
+        self.items = Item()
 
         self.data = {
             "score": 0,
@@ -40,7 +41,7 @@ class Controller:
             "platformer": False,
         }
 
-        self.data = self.saveload()
+        self.saveload()
 
         self.state = "MAIN"
 
@@ -60,11 +61,12 @@ class Controller:
     def mainloop(self):
 
         score = self.data["score"]
-
         running = True
         upgrade_price = 25
         multiplier = 1
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
+        items = [100, 750, 3000, 20000, 111111, 500000]
+        item_rate = 0
         while running:
             # timer.tick(framerate)
             for event in pygame.event.get():
@@ -91,30 +93,56 @@ class Controller:
                             upgrade_price = 25 * multiplier
                             print("Upgrade price: ", upgrade_price)
                         print(score)
-                    elif event.key == pygame.K_z: # add score requirement for below
+                    if event.key == pygame.K_z: # add score requirement for below
                         if score >= parts[0]:
                             score -= parts[0]
                             self.data["robot"]["leg1"] = True
-                    elif event.key == pygame.K_x:
+                    if event.key == pygame.K_x:
                         if score >= parts[1]:
                             score -= parts[1]
                             self.data["robot"]["leg2"] = True
-                    elif event.key == pygame.K_c:
+                    if event.key == pygame.K_c:
                         if score >= parts[2]:
                             score -= parts[2]
                             self.data["robot"]["body"] = True
-                    elif event.key == pygame.K_v:
+                    if event.key == pygame.K_v:
                         if score >= parts[3]:
                             score -= parts[3]
                             self.data["robot"]["arm1"] = True
-                    elif event.key == pygame.K_b:
+                    if event.key == pygame.K_b:
                         if score >= parts[4]:
                             score -= parts[4]
                             self.data["robot"]["arm2"] = True
-                    elif event.key == pygame.K_n:
+                    if event.key == pygame.K_n:
                         if score >= parts[5]:
                             score -= parts[5]
                             self.data["robot"]["head"] = True
+                    if event.key == pygame.K_1:
+                        if score >= items[0]:
+                            score -= items[0]
+                            item_rate += self.items.item_type(1)
+                    if event.key == pygame.K_2:
+                        if score >= items[1]:
+                            score -= items[1]
+                            item_rate += self.items.item_type(2)
+                    if event.key == pygame.K_3:
+                        if score >= items[2]:
+                            score -= items[2]
+                            item_rate += self.items.item_type(3)
+                    if event.key == pygame.K_4:
+                        if score >= items[3]:
+                            score -= items[3]
+                            item_rate += self.items.item_type(4)
+                    if event.key == pygame.K_5:
+                        if score >= items[4]:
+                            score -= items[4]
+                            item_rate += self.items.item_type(5)
+                    if event.key == pygame.K_6:
+                        if score >= items[5]:
+                            score -= items[5]
+                            item_rate += self.items.item_type(6)
+            score = self.items.update(score, item_rate)
+            print(score)
             pygame.display.flip()
         pygame.quit()
 
@@ -126,7 +154,7 @@ class Controller:
     def saveload(self):
         try:
             with open("data.txt") as f:
-                json.load(f)
+                self.data = json.load(f)
         except:
             with open("data.txt", "w") as f:
                 json.dump(self.data, f)
