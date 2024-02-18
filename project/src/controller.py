@@ -40,7 +40,7 @@ class Controller:
             "platformer": False,
         }
 
-        self.data = self.saveload()
+        self.saveload()
 
         self.state = "MAIN"
 
@@ -126,7 +126,7 @@ class Controller:
     def saveload(self):
         try:
             with open("data.txt") as f:
-                json.load(f)
+                self.data = json.load(f)
         except:
             with open("data.txt", "w") as f:
                 json.dump(self.data, f)
