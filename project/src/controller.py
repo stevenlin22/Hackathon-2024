@@ -79,7 +79,7 @@ class Controller:
     def mainloop(self):
 
         score = self.data["score"]
-        upgrade_price = 25
+        upgrade_price = self.data["upgrade_price"]
         multiplier = self.data["multiplier"]
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
         parts_text = ['(z)Left Leg(1000)','(x)Right Leg (2500)', '(c)Body(10K)','(v)Right Arm(50K)','(b)Left Arm(100K)','(n)Head(1M)']
