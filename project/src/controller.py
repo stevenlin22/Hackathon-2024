@@ -59,8 +59,8 @@ class Controller:
     def gameloop(self):
         if self.state == "MAIN":
             self.mainloop()
-        elif self.state == "PLACEHOLDER":
-            self.placeholder()
+        elif self.state == "END":
+            self.endloop()
 
 
 
@@ -173,6 +173,10 @@ class Controller:
                     if event.key == pygame.K_m:
                         self.sound.mute_key()
 
+                    if event.key == pygame.K_RETURN:
+                        if self.data["robot"]["head"]:
+                            self.state = "END"
+
             score = self.items.update(score, item_rate)
             # print(score)
             
@@ -255,12 +259,11 @@ class Controller:
 
     
 
-    def placeholder(self):
-        # some things that could be other state
-        # credits
-        # end scene that plays when the robot is done
-        # etc.
+    def endloop(self):
         pass
+        #TODO: Spawn robot
+        #TODO: Put robot in field of flowers
+        #TODO: Let player move robot around in field
 
     def saveload(self):
         try:
