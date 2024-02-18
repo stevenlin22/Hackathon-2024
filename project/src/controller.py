@@ -154,11 +154,11 @@ class Controller:
             print(score)
 
             #TODO: display everything
-            left = pygame.image.load('assets/Background.png')
+            left = pygame.image.load('project/assets/Background.png')
             left = pygame.transform.scale(left, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(left, (0,0))
 
-            right = pygame.image.load('assets/RBackground.png')
+            right = pygame.image.load('project/assets/RBackground.png')
             right = pygame.transform.scale(right, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(right, ((self.screenwidth / 2) + 5, 0))
 
