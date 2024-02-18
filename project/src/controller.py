@@ -189,7 +189,7 @@ class Controller:
                 button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, items[j], font, item_text[j], fontsize)
                 button.draw(score)
                 ypos += 90
-                
+        
             if self.data["robot"]["leg1"] is True:
                 img = pygame.image.load("project/assets/leg1.png")
                 self.screen.blit(img, (100, 100))
