@@ -81,6 +81,7 @@ class Controller:
                     if event.key == pygame.K_SPACE:
                         #Clicker part
                         score = self.score_increase.scoreIncrease(score, multiplier)
+                        self.data["score"] = score
                         print("Score: ", score)
                         print("multiplier1: ", multiplier)
                         print("Upgrade Cost: ", upgrade_price)
@@ -94,8 +95,6 @@ class Controller:
                             print("Multplier: ", multiplier)
                             upgrade_price = 25 * multiplier
                             print("Upgrade price: ", upgrade_price)
-                        score = self.score_increase.scoreIncrease(score)
-                        self.data["score"] = score
                         print(score)
                     if event.key == pygame.K_z: # add score requirement for below
                         if score >= parts[0]:
@@ -164,5 +163,5 @@ class Controller:
             with open("data.txt") as f:
                 self.data = json.load(f)
         except:
-            with open("data.txt") as f:
+            with open("data.txt", "w") as f:
                 json.dump(self.data, f)
