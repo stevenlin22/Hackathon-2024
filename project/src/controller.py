@@ -71,7 +71,7 @@ class Controller:
         score = self.data["score"]
         running = True
         upgrade_price = self.data["upgrade_price"]
-        multiplier = self.data["multiplier"]
+        multiplier = 25
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
         parts_text = ['(z)Left Leg(1000)','(x)Right Leg (2500)', '(c)Body(10K)','(v)Right Arm(50K)','(b)Left Arm(100K)','(n)Head(1M)']
         items = [100, 750, 3000, 20000, 111111, 500000]
@@ -139,37 +139,37 @@ class Controller:
                             self.sound.upgrade_sound()
                             score -= items[0]
                             item_rate += self.items.item_type(1)
-                            self.data["items"]["gear"] += 1
+                            self.data["item_rate"] += item_rate
                     if event.key == pygame.K_2:
                         if score >= items[1]:
                             self.sound.upgrade_sound()
                             score -= items[1]
                             item_rate += self.items.item_type(2)
-                            self.data["items"]["wd40"] += 1
+                            self.data["item_rate"] += item_rate
                     if event.key == pygame.K_3:
                         if score >= items[2]:
                             self.sound.upgrade_sound()
                             score -= items[2]
                             item_rate += self.items.item_type(3)
-                            self.data["items"]["cpu"] += 1
+                            self.data["item_rate"] += item_rate
                     if event.key == pygame.K_4:
                         if score >= items[3]:
                             self.sound.upgrade_sound()
                             score -= items[3]
                             item_rate += self.items.item_type(4)
-                            self.data["items"]["thingy"] += 1
+                            self.data["item_rate"] += item_rate
                     if event.key == pygame.K_5:
                         if score >= items[4]:
                             self.sound.upgrade_sound()
                             score -= items[4]
                             item_rate += self.items.item_type(5)
-                            self.data["items"]["wires"] += 1
+                            self.data["item_rate"] += item_rate
                     if event.key == pygame.K_6:
                         if score >= items[5]:
                             self.sound.upgrade_sound()
                             score -= items[5]
                             item_rate += self.items.item_type(6)
-                            self.data["items"]["sheets"] += 1
+                            self.data["item_rate"] += item_rate
                     if event.key == pygame.K_m:
                         self.sound.mute_key()
 
