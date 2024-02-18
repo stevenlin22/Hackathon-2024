@@ -289,6 +289,9 @@ class Controller:
             self.ending.draw(self.screen)
             image = pygame.transform.scale(image, (100,100))
             self.ending_robot.draw(self.screen, image)
+            font = 'project/assets/font.ttf'
+            font_size = 20
+            
             pygame.display.flip()
         #TODO: Spawn robot
         #TODO: Put robot in field of flowers
