@@ -155,24 +155,6 @@ class Controller:
                             item_rate += self.items.item_type(6)
             score = self.items.update(score, item_rate)
             print(score)
-            if self.data["robot"]["leg1"] is True:
-                img = pygame.image.load("project/assets/leg1.png")
-                self.screen.blit(img, (100, 100))
-            if self.data["robot"]["leg2"] is True:
-                img = pygame.image.load("project/assets/leg2.png")
-                self.screen.blit(img, (100, 100))
-            if self.data["robot"]["body"] is True:
-                img = pygame.image.load("project/assets/body.png")
-                self.screen.blit(img, (100, 100))
-            if self.data["robot"]["arm1"] is True:
-                img = pygame.image.load("project/assets/arm1.png")
-                self.screen.blit(img, (100, 100))
-            if self.data["robot"]["arm2"] is True:
-                img = pygame.image.load("project/assets/arm2.png")
-                self.screen.blit(img, (100, 100))
-            if self.data["robot"]["head"] is True:
-                img = pygame.image.load("project/assets/head.png")
-                self.screen.blit(img, (100, 100))
 
             #TODO: display everything
             left = pygame.image.load('project/assets/Background.png')
@@ -207,7 +189,25 @@ class Controller:
                 button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, items[j], font, item_text[j], fontsize)
                 button.draw(score)
                 ypos += 90
-
+                
+            if self.data["robot"]["leg1"] is True:
+                img = pygame.image.load("project/assets/leg1.png")
+                self.screen.blit(img, (100, 100))
+            if self.data["robot"]["leg2"] is True:
+                img = pygame.image.load("project/assets/leg2.png")
+                self.screen.blit(img, (100, 100))
+            if self.data["robot"]["body"] is True:
+                img = pygame.image.load("project/assets/body.png")
+                self.screen.blit(img, (100, 100))
+            if self.data["robot"]["arm1"] is True:
+                img = pygame.image.load("project/assets/arm1.png")
+                self.screen.blit(img, (100, 100))
+            if self.data["robot"]["arm2"] is True:
+                img = pygame.image.load("project/assets/arm2.png")
+                self.screen.blit(img, (100, 100))
+            if self.data["robot"]["head"] is True:
+                img = pygame.image.load("project/assets/head.png")
+                self.screen.blit(img, (100, 100))
             pygame.display.flip()
         pygame.quit()
 
