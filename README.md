@@ -1,5 +1,8 @@
 # Hackathon-2024
 
+# Running game:
+Run the main.py file in the project
+
 # Idea: Robot Game
 HackBU needs a new robot (why? who knows), and we're going to build it! Gain enough score to buy the robot!! Quick!!
 
@@ -13,10 +16,10 @@ HackBU needs a new robot (why? who knows), and we're going to build it! Gain eno
 7. Ending code
 
 # Members
-name
-name
-name
-name
+Stephen Barnum
+Steven Lin
+Matt-Joshua Tan
+Shang Ni:
 
 # Classes
 Upgrades Class
