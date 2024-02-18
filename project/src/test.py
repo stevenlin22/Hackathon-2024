@@ -132,7 +132,7 @@ while running:
         color12="gray"
     
     
-    
+
     
     # Drawing Rectangle
     pygame.draw.rect(screen, color, pygame.Rect(475, 0, 10, 540))
