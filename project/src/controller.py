@@ -262,8 +262,10 @@ class Controller:
     
 
     def endloop(self):
-        self.screen.fill("black")
-        pygame.display.flip()
+        running = True
+        while running:
+            self.screen.fill("black")
+            pygame.display.flip()
         pass
         #TODO: Spawn robot
         #TODO: Put robot in field of flowers
