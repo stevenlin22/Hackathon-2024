@@ -7,7 +7,11 @@ class Sound:
     def play_music(self):
         pygame.mixer.music.load('project/assets/clicker_music.mp3')
         pygame.mixer.music.play()
-    
+    def stop_music(self):
+        pygame.mixer.music.unload()
+    def ending_music(self):
+        pygame.mixer.music.load('project/assets/ending.mp3')
+        pygame.mixer.music.play()
     def tap_sound(self):
         tap_sound = pygame.mixer.Sound("project/assets/tap_sound.wav")
         pygame.mixer.Sound.play(tap_sound)

@@ -179,8 +179,7 @@ class Controller:
                     if event.key == pygame.K_RETURN:
                         if self.data["robot"]["head"]:
                             self.state = "END"
-                            running = False
-
+                            self.sound.stop_music()
             score = self.items.update(score, item_rate)
             # print(score)
             
@@ -188,11 +187,11 @@ class Controller:
             left = pygame.image.load('project/assets/Background.png')
             left = pygame.transform.scale(left, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(left, (0,0))
-
+            
             right = pygame.image.load('project/assets/RBackground.jpg')
             right = pygame.transform.scale(right, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(right, ((self.screenwidth / 2) + 5, 0))
-
+            
             pygame.draw.rect(self.screen, "black", pygame.Rect(475, 0, 10, 540))
 
             font = 'freesansbold.ttf'
@@ -257,7 +256,6 @@ class Controller:
             self.screen.blit(multcosttext, multcosttextRect)
             
             # Display everything
-            
             pygame.display.flip()
 
 
@@ -265,13 +263,13 @@ class Controller:
     
 
     def endloop(self):
+        self.sound.ending_music()
         while self.state == "END":
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.state = "STOP"
-            self.screen.fill("black")
+            pygame.surface.Surface.fill(self.screen, 'black')
             pygame.display.flip()
-        pass
         #TODO: Spawn robot
         #TODO: Put robot in field of flowers
         #TODO: Let player move robot around in field
