@@ -34,8 +34,8 @@ class Controller:
 
         self.data = {
             "score": 0,
-            "upgrade_price": 0,
-            "multiplier": 0,
+            "upgrade_price": 25,
+            "multiplier": 1,
             "items": {
                 "gear": 0,
                 "wd40": 0,
