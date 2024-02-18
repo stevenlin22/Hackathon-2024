@@ -155,6 +155,7 @@ class Controller:
                             item_rate += self.items.item_type(6)
             score = self.items.update(score, item_rate)
             print(score)
+
             if self.data["robot"]["leg1"] is True:
                 img = pygame.image.load("project/assets/leg1.png")
                 self.screen.blit(img, (100, 100))
@@ -174,7 +175,7 @@ class Controller:
                 img = pygame.image.load("project/assets/head.png")
                 self.screen.blit(img, (100, 100))
 
-            #TODO: display everything
+            # Draw bg images
             left = pygame.image.load('project/assets/Background.png')
             left = pygame.transform.scale(left, ((self.screenwidth / 2) - 5, self.screenheight))
             self.screen.blit(left, (0,0))
@@ -185,6 +186,8 @@ class Controller:
 
             pygame.draw.rect(self.screen, "black", pygame.Rect(475, 0, 10, 540))
 
+
+            # Prepare to draw the buttons !!!
             font = 'freesansbold.ttf'
             fontsize = 20
 
@@ -208,6 +211,7 @@ class Controller:
                 button.draw(score)
                 ypos += 90
 
+            # Display everything
             pygame.display.flip()
         pygame.quit()
 
