@@ -70,7 +70,7 @@ class Controller:
         score = self.data["score"]
         running = True
         upgrade_price = 25
-        multiplier = 1
+        multiplier = self.data["multiplier"]
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
         parts_text = ['(z)Left Leg(1000)','(x)Right Leg (2500)', '(c)Body(10K)','(v)Right Arm(50K)','(b)Left Arm(100K)','(n)Head(1M)']
         items = [100, 750, 3000, 20000, 111111, 500000]
