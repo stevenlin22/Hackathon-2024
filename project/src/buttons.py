@@ -16,7 +16,7 @@ class Button:
         self.color = color
 
     def draw(self, score):
-        if self.cost >= score:
+        if self.cost <= score:
             self.color = "green"
         else:
             self.color = "gray"
