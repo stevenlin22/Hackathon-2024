@@ -6,14 +6,15 @@ import pygame
 import json
 from src.upgrades import Upgrades
 from src.items import Item
+from src.buttons import Button
 
 class Controller:
     # init
     def __init__(self):
         pygame.init()
-
-        self.screen = pygame.display.set_mode([960, 540])
-        self.screen = pygame.display.set_mode([960, 540])
+        self.screenwidth = 960
+        self.screenheight = 540
+        self.screen = pygame.display.set_mode([self.screenwidth, self.screenheight])
         self.screen.fill("white")
         self.width, self.length = pygame.display.get_window_size()
         pygame.display.set_caption("HackBU clicker game")
@@ -67,8 +68,13 @@ class Controller:
         running = True
         upgrade_price = 25
         multiplier = 1
+        
         parts = [1000, 2500, 10000, 50000, 100000, 1000000]
+        parts_text = ['(z)Left Leg(1000)','(x)Right Leg (2500)', '(c)Body(10K)','(v)Right Arm(50K)','(b)Left Arm(100K)','(n)Head(1M)']
+        
         items = [100, 750, 3000, 20000, 111111, 500000]
+        item_text = ['Gear (100) +1/s','WD40 (750) +5/s','CPU (3000) +25/s','Thingy (20K) +200/s','New Wires (111K) +1K/s','Gold (500K) +4.5k/s']
+
         item_rate = 0
         while running:
             # timer.tick(framerate)
@@ -167,6 +173,41 @@ class Controller:
             if self.data["robot"]["head"] is True:
                 img = pygame.image.load("project/assets/head.png")
                 self.screen.blit(img, (100, 100))
+
+            #TODO: display everything
+            left = pygame.image.load('project/assets/Background.png')
+            left = pygame.transform.scale(left, ((self.screenwidth / 2) - 5, self.screenheight))
+            self.screen.blit(left, (0,0))
+
+            right = pygame.image.load('project/assets/RBackground.jpg')
+            right = pygame.transform.scale(right, ((self.screenwidth / 2) - 5, self.screenheight))
+            self.screen.blit(right, ((self.screenwidth / 2) + 5, 0))
+
+            pygame.draw.rect(self.screen, "black", pygame.Rect(475, 0, 10, 540))
+
+            font = 'freesansbold.ttf'
+            fontsize = 20
+
+            buttonwidth = 180
+            buttonheight = 70
+
+            xpos = 525
+            ypos = 10
+
+            for j in range(6):
+                button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, parts[j], font, parts_text[j], fontsize)
+                button.draw(score)
+                ypos += 90
+            
+            xpos += 215
+            fontsize -= 4
+            ypos = 10
+
+            for j in range(6):
+                button = Button(xpos, ypos, buttonwidth, buttonheight, self.screen, items[j], font, item_text[j], fontsize)
+                button.draw(score)
+                ypos += 90
+
             pygame.display.flip()
         pygame.quit()
 
