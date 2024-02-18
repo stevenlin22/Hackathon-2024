@@ -15,6 +15,7 @@ class Button:
         self.cost = cost
         self.color = color
 
+    def moveText(self, )
     def draw(self, score):
         if self.cost == -1:
             pass
