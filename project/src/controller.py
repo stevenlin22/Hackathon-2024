@@ -13,7 +13,7 @@ from src.ending import Background
 from src.robot import Robot
 
 class Controller:
-    
+
     # init
     def __init__(self):
         pygame.init()
@@ -21,7 +21,7 @@ class Controller:
         self.screenheight = 540
         self.screen = pygame.display.set_mode([self.screenwidth, self.screenheight])
         self.screen.fill("white")
-        pygame.display.set_caption("HackBU clicker game")
+        pygame.display.set_caption("The Robot Game")
         self.framerate = 60
 
         increaseRate = 1
